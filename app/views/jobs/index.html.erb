@@ -1,0 +1,16 @@
+<h1>Todos os Empregos Disponíveis</h1>
+
+<% if @jobs.empty? %>
+  <p><%= "Nenhuma vaga cadastrada" %> </p>
+<% else %>
+  <dl>
+  <% @jobs.each do |job| %>
+    <dt>Nome: </dt>
+    <dd> <%= link_to job.name, job_path(job.id) %> </dd>
+    <dt>Descrição: </dt>
+    <dd> <%= job.description %> </dd>
+    <dt>Salário: </dt>
+    <dd> <%= job.salary %> </dd>
+  <% end %>
+  </dl>
+<% end %>
