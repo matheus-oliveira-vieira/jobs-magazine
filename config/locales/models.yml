@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      company: 
+        one: Empresa
+        other: Empresas
+      job:
+        one: Emprego
+        other: Empregos
+      user:
+        one: Usuário
+        other: Usuários
+    attributes:
+      company:
+        name: "Nome"
+        email: 'E-mail'
+        password: 'Senha'

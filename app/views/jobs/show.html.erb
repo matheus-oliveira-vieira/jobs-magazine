@@ -1,1 +1,15 @@
-<h1>Descrição da Vaga</h1>
+<h1><%= @jobs.name %></h1>
+<dl>
+  <dt>Descrição: </dt>
+  <dd> <%= @jobs.description %> </dd>
+  <dt>Salário: </dt>
+  <dd> <%= @jobs.salary %> </dd>
+  <dt>Nível: </dt>
+  <dd> <%= @jobs.level %> </dd>
+  <dt>Requisitos: </dt>
+  <dd> <%= @jobs.requirements %> </dd>
+  <dt>Valida até: </dt>
+  <dd> <%= @jobs.expiration_date %> </dd>
+  <dt>Vagas Disponíveis: </dt>
+  <dd> <%= @jobs.qty_candidates %> </dd>
+</dl>
