@@ -1,25 +1,25 @@
 <h1>Cadastrar Empresa</h1>
 
-<%= form_with model: @company do |f| %>
+<%= form_with model: @companies do |f| %>
   <div>
-    <%= f.label :name %>
+    <%= f.label :name, 'Nome' %>
     <%= f.text_field :name %>
   </div>
   
   <div>
-    <%= f.label :address %>
+    <%= f.label :address, "Endereço" %>
     <%= f.text_field :address %>
   </div>
   <div>
-    <%= f.label :cnpj %>
+    <%= f.label :cnpj, "CNPJ" %>
     <%= f.text_field :cnpj %>
   </div>
   <div>
-    <%= f.label :website %>
+    <%= f.label :website, 'Site' %>
     <%= f.text_field :website %>
   </div>
   <div>
-    <%= f.label :founded %>
+    <%= f.label :founded, "Ano de Fundação" %>
     <%= f.text_field :founded %>
   </div>
   <div>
