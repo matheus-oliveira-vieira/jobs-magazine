@@ -3,6 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
-#enum role: %i[colaborador candidato]
+  enum role: { administrator:5, employee: 10, candidate: 15 }
+  
+  #before_save :employee_or_candidate
+
+  # private
+  #   def employee_or_candidate
+  #     if :role == 10
+  #     elsif :role == 15
+  #       puts 'ololololol'
+  #     end
+  #   end
+
 end

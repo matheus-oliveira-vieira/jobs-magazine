@@ -2,6 +2,12 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+  
+  <div class="field">
+    <%= f.label :role, 'Você é' %><br />
+    <!--<%= f.select :role, [['Colaborador', 'employee'],['Candidato', 'candidate']] %> -->
+    <%= f.select :role, User.roles.keys - ['administrator'] %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
