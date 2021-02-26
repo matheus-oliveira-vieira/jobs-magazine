@@ -5,12 +5,8 @@
   
   <div class="field">
     <%= f.label :role, 'Você é' %><br />
-<<<<<<< HEAD
     <!--<%= f.select :role, [['Colaborador', 'employee'],['Candidato', 'candidate']] %> -->
     <%= f.select :role, User.roles.keys - ['administrator'] %>
-=======
-    <%= f.select :role, [['Colaborador', 10],['Candidato', 15]] %>
->>>>>>> c3e3cb079fa88b040006f7f54a6037fcfb775bff
   </div>
 
   <div class="field">

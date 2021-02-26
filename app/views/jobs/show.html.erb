@@ -9,7 +9,7 @@
   <dt>Requisitos: </dt>
   <dd> <%= @jobs.requirements %> </dd>
   <dt>Valida até: </dt>
-  <dd> <%= @jobs.expiration_date %> </dd>
+  <dd> <%= I18n.localize(@jobs.expiration_date) %> </dd>
   <dt>Vagas Disponíveis: </dt>
   <dd> <%= @jobs.qty_candidates %> </dd>
 </dl>

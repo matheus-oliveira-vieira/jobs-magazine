@@ -7,7 +7,6 @@ feature 'User sign in' do
     visit root_path
     click_on 'Entrar'
     within('form') do
-      select 'Candidato', from: 'Você é'
       fill_in 'E-mail', with: user.email
       fill_in 'Senha', with: '123456'
       click_on 'Entrar'

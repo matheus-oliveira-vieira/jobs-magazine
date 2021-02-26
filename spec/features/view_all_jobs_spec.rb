@@ -56,7 +56,7 @@ feature "view jobs" do
     expect(page).to have_content(job1.salary)
     expect(page).to have_content(job1.level)
     expect(page).to have_content(job1.requirements)
-    expect(page).to have_content(job1.expiration_date)
+    expect(page).to have_content(I18n.localize(job1.expiration_date))
     expect(page).to have_content(job1.qty_candidates)
   end
 end

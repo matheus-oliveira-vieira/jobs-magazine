@@ -4,15 +4,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum role: { administrator:5, employee: 10, candidate: 15 }
+  belongs_to :company, optional: true
   
-  #before_save :employee_or_candidate
+ before_save :employee_or_candidate
 
-  # private
-  #   def employee_or_candidate
-  #     if :role == 10
-  #     elsif :role == 15
-  #       puts 'ololololol'
-  #     end
-  #   end
+  private
+    def employee_or_candidate
+      if employee?
+        company_website = email.split('@').last
+        company = Company.find_by(website: company_website)
+        if company.present?
+          self.company = company
+        else
+          self.role = 'administrator'
+        end
+
+      end
+    end
 
 end

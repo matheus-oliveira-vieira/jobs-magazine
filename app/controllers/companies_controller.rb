@@ -12,9 +12,11 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    
     @company = Company.new(company_params)
     #@company.user = current_user
     if @company.save
+      current_user.update(company: @company)
       redirect_to @company
     else
       render :new
