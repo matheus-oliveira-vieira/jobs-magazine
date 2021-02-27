@@ -2,10 +2,16 @@ require 'rails_helper'
 
 feature 'Admin creates a job' do
   scenario 'successfully' do
-    # user = User.create!(email: 'matheus@code4u.com', password: '123456')
+    company = Company.create!(name: 'Code4U', 
+      address: 'Rua A 123', 
+      cnpj: '92107397000133', 
+      website: 'code4u.com', 
+      founded: '2020')
+    user = User.create!(email: 'matheus@code4u.com', password: '123456', company_id: company.id)
 
     # COLOCAR A LOGICA DO LOGIN DO COLABORADOR
     visit root_path
+    login_as user
     click_on "Nova Vaga de Emprego"
     fill_in 'Nome', with: 'Vaga Ruby on Rails'
     fill_in 'Descrição', with: 'Uma Vaga Ruby on Rails com desafios muito interessantes'

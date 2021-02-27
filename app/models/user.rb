@@ -18,8 +18,10 @@ class User < ApplicationRecord
         else
           self.role = 'administrator'
         end
+      else
+        self.role = 'candidate'
+      end
 
       end
-    end
 
 end

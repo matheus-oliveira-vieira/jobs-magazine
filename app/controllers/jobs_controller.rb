@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  #before_action :authenticate_user!
   def index
     @jobs = Job.all
   end
@@ -19,9 +20,13 @@ class JobsController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @jobs = Job.find(params[:id])
+  end
   
   private
     def job_params
-      params.require(:job).permit(:name, :description, :salary, :level, :requirements, :expiration_date, :qty_candidates)
+      params.require(:job).permit(:name, :description, :salary, :level, :requirements, :expiration_date, :qty_candidates, :company_id)
     end
 end

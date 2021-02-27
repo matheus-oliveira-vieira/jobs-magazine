@@ -1,3 +1,4 @@
+
 <h1><%= @jobs.name %></h1>
 <dl>
   <dt>Descrição: </dt>
@@ -13,3 +14,6 @@
   <dt>Vagas Disponíveis: </dt>
   <dd> <%= @jobs.qty_candidates %> </dd>
 </dl>
+<%= link_to 'Editar', edit_job_path(@jobs)%>
+
+<%= link_to "Voltar Para a página Inicial", root_path %>

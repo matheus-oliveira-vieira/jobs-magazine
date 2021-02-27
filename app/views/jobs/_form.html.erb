@@ -1,0 +1,33 @@
+<%= form_with model: job do |f| %>
+  <div>
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div>
+    <%= f.label :description, "Descrição" %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :salary, "Salário" %>
+    <%= f.text_field :salary %>
+  </div>
+  <div>
+    <%= f.label :level, 'Nível' %>
+    <%= f.text_field :level %>
+  </div>
+  <div>
+    <%= f.label :requirements, "Requisitos" %>
+    <%= f.text_field :requirements %>
+  </div>
+  <div>
+    <%= f.label :expiration_date, "Data de Término das candidaturas" %>
+    <%= f.text_field :expiration_date %>
+  </div>
+  <div>
+    <%= f.label :qty_candidates, "Quantidade máxima de vagas" %>
+    <%= f.text_field :qty_candidates %>
+  </div>
+  
+  <%= f.submit "Salvar" %>
+<% end %>

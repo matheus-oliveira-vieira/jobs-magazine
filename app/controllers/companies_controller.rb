@@ -15,6 +15,7 @@ class CompaniesController < ApplicationController
     
     @company = Company.new(company_params)
     #@company.user = current_user
+    @company.website = current_user.email.split('@').last
     if @company.save
       current_user.update(company: @company)
       redirect_to @company
