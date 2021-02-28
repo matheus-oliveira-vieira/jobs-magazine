@@ -14,6 +14,7 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
+    @job.company_id = current_user.company_id
     if @job.save
       redirect_to @job
     else
@@ -23,6 +24,16 @@ class JobsController < ApplicationController
 
   def edit
     @jobs = Job.find(params[:id])
+  end
+
+  def update
+    @jobs = Job.find(params[:id])
+
+    if @jobs.update(job_params)
+      redirect_to @jobs
+    else
+      render :edit
+    end
   end
   
   private

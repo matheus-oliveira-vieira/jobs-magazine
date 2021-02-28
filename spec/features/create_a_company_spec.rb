@@ -2,11 +2,16 @@ require 'rails_helper'
 
 feature 'Admin creates a company' do
   scenario 'successfully' do
-    # user = User.create!(email: 'matheus@code4u.com', password: '123456')
-
-    # COLOCAR A LOGICA DO LOGIN DO COLABORADOR
+    
     visit root_path
-    click_on 'Nova Empresa'
+    
+    click_on "Entrar"
+    click_on "Sign up"
+    select 'employee', from: 'Você é'
+    fill_in I18n.t('email'), with: 'matheus@code4u.com'
+    fill_in I18n.t('password'), with: '123456'
+    fill_in I18n.t('password_confirmation'), with: '123456'
+    click_on "Sign up"
 
     fill_in 'Nome', with: 'Code4U'
     fill_in 'Endereço', with: 'Rua A 123'
