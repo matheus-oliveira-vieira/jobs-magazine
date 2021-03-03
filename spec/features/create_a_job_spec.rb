@@ -20,6 +20,7 @@ feature 'Admin creates a job' do
     fill_in 'Requisitos', with: 'Ruby on Rails, Git'
     fill_in 'Data de Término das candidaturas', with: '30/03/2021'
     fill_in 'Quantidade máxima de vagas', with: '10'
+    choose :job_active_true
     click_on 'Salvar'
 
     expect(current_path).to eq(job_path(Job.last))
@@ -30,5 +31,6 @@ feature 'Admin creates a job' do
     expect(page).to have_content('Ruby on Rails, Git')
     expect(page).to have_content( '30/03/2021')
     expect(page).to have_content('10')
+    expect(page).to have_content('Ativa')
   end
 end

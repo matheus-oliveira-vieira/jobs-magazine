@@ -28,6 +28,12 @@
     <%= f.label :qty_candidates, "Quantidade máxima de vagas" %>
     <%= f.text_field :qty_candidates %>
   </div>
-  
+  <div>
+    <%= f.label :active, "Status da vaga" %>
+    <%= f.radio_button :active, true %>
+    <%= f.label :active_true, "Ativa" %>
+    <%= f.radio_button :active, false %>
+    <%= f.label :active_false, "Inativa" %>
+  </div>
   <%= f.submit "Salvar" %>
 <% end %>
