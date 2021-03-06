@@ -36,6 +36,11 @@ class JobsController < ApplicationController
     end
   end
   
+  def status
+    @job = Job.find(params[:id])
+    @job.update(active: !@job.active)
+    redirect_to @job
+  end
   
 
   private

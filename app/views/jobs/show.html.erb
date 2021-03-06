@@ -17,5 +17,5 @@
   <dd> <%= @jobs.active_or_inactive(@jobs.active) %> </dd>
 </dl>
 <%= link_to 'Editar', edit_job_path(@jobs)%>
-<%= link_to 'Inativar Vaga', inactivate_job_path(@jobs), method: :post %>
+<%= link_to 'Alterar Status da Vaga', status_job_path(@jobs), method: :patch %>
 <%= link_to "Voltar Para a página Inicial", root_path %>
