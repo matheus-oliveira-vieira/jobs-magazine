@@ -1,3 +1,9 @@
+<%= form_with url: search_job_path, method: :get do %>
+    <%= label_tag :q, 'Busca:' %>
+    <%= text_field_tag :q %>
+    <%= submit_tag 'Pesquisar' %>
+  <% end %>
+  
 <h1>Todos os Empregos Disponíveis</h1>
 
 <% if @jobs.empty? %>

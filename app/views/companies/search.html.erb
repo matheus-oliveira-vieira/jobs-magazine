@@ -1,0 +1,6 @@
+<h1>Resultados da busca de Empresas</h1>
+<ul>
+  <% @companies.each do |company| %>
+    <li><%= company.name %>, <%= company.website %></li>
+  <% end %>
+</ul>

@@ -24,6 +24,11 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def search
+    @companies = Company.where('name like ? OR website like ?',
+      "%#{params[:q]}%", "%#{params[:q]}%")
+  end
+
   private
     def company_params
       params.require(:company).permit(:name, :address, :cnpj, :website, :founded, :logo)

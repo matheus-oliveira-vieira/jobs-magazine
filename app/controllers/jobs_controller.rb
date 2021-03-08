@@ -35,7 +35,19 @@ class JobsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+
+    redirect_to root_path
+  end
   
+  def search
+    @jobs = Job.where('name like ? OR description like ?',
+      "%#{params[:q]}%", "%#{params[:q]}%")
+  end
+
   def status
     @job = Job.find(params[:id])
     @job.update(active: !@job.active)

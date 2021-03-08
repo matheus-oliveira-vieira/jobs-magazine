@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   resources :jobs do
     patch 'status', on: :member
   end
+  get 'search_job', to:"jobs#search"
+  get 'search_company', to:"companies#search"
+  
   resources :companies, only: %i[index new create show edit update]
 end

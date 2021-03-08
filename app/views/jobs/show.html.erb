@@ -18,4 +18,5 @@
 </dl>
 <%= link_to 'Editar', edit_job_path(@jobs)%>
 <%= link_to 'Alterar Status da Vaga', status_job_path(@jobs), method: :patch %>
+<%= link_to "Excluir Vaga", job_path(@jobs), method: :delete, data: { confirm: "Deseja excluir a vaga?" } %>
 <%= link_to "Voltar Para a página Inicial", root_path %>
