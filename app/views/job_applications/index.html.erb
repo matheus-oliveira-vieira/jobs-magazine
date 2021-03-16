@@ -1,0 +1,12 @@
+<h1>Vagas Aplicadas</h1>
+	<dl>
+  <% @job_applications.each do |job| %>
+    <%if job.user_id == current_user.id%>
+			<dt>Vaga: </dt>
+			<dd> <%= link_to Job.find(job.job_id).name, job_path(job.job_id)%> </dd>
+			<dt>Situação: </dt>
+			<dd> <%= job.status %> </dd>
+    <%end%>
+  <% end %>
+  </dl>
+<%= link_to "Voltar Para a página Inicial", root_path %>

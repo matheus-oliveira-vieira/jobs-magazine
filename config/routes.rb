@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   get 'search_job', to:"jobs#search"
   get 'search_company', to:"companies#search"
-  
+  resources :job_applications
   resources :companies, only: %i[index new create show edit update]
 end
