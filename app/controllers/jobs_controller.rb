@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @job_applied=JobApplication.find_by(user: current_user, job: @job)
     @jobs = Job.find(params[:id])
   end
 
@@ -53,7 +54,9 @@ class JobsController < ApplicationController
     @job.update(active: !@job.active)
     redirect_to @job
   end
-  
+
+  def all_applications
+  end
 
   private
     def job_params

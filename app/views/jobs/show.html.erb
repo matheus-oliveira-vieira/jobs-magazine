@@ -16,8 +16,13 @@
   <dt>Status da Vaga </dt>
   <dd> <%= @jobs.active_or_inactive(@jobs.active) %> </dd>
 </dl>
-<%= link_to 'Editar', edit_job_path(@jobs)%>
-<%= link_to 'Alterar Status da Vaga', status_job_path(@jobs), method: :patch %>
-<%= link_to "Excluir Vaga", job_path(@jobs), method: :delete, data: { confirm: "Deseja excluir a vaga?" } %>
-<%= link_to "Candidatar-se a Vaga", job_applications_path(job: @jobs), method: :post%>
+
+<%if current_user && !current_user.candidate?%>
+  <%= link_to 'Editar', edit_job_path(@jobs)%>
+  <%= link_to 'Alterar Status da Vaga', status_job_path(@jobs), method: :patch %>
+  <%= link_to "Excluir Vaga", job_path(@jobs), method: :delete, data: { confirm: "Deseja excluir a vaga?" } %>
+<%end%>
+<%unless @job_applied%>
+  <%= link_to "Candidatar-se a Vaga", job_applications_path(job: @jobs), method: :post%>
+<%end%>
 <%= link_to "Voltar Para a página Inicial", root_path %>

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: { administrator:5, employee: 10, candidate: 15 }
   belongs_to :company, optional: true
-  
+  has_many :job_applications
  before_save :employee_or_candidate
 
   private

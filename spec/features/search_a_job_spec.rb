@@ -4,7 +4,7 @@ feature 'Visit jobs page' do
   context 'and search for job' do
     scenario 'successfully' do
     
-      Company.create!(name: 'Code4U', address: 'Rua A 123', 
+      company = Company.create!(name: 'Code4U', address: 'Rua A 123', 
                       cnpj: '92107397000133', website: 'code4u.com', founded: '2020')
                       
       Job.create!(name:'Vaga Ruby on Rails', description: 'Vaga de Ruby on Rails muito boa',

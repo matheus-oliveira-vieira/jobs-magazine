@@ -1,11 +1,11 @@
 <h1>Vagas Aplicadas</h1>
 	<dl>
-  <% @job_applications.each do |job| %>
-    <%if job.user_id == current_user.id%>
+  <% @job_applications.each do |job_application| %>
+    <%if job_application.user_id == current_user.id%>
 			<dt>Vaga: </dt>
-			<dd> <%= link_to Job.find(job.job_id).name, job_path(job.job_id)%> </dd>
+			<dd> <%= link_to job_application.job.name, job_path(job_application.job_id)%> </dd>
 			<dt>Situação: </dt>
-			<dd> <%= job.status %> </dd>
+			<dd> <%= job_application.status %> </dd>
     <%end%>
   <% end %>
   </dl>
