@@ -1,28 +1,29 @@
 
-<h1><%= @jobs.name %></h1>
+<h1><%= @job.name %></h1>
 <dl>
   <dt>Descrição: </dt>
-  <dd> <%= @jobs.description %> </dd>
+  <dd> <%= @job.description %> </dd>
   <dt>Salário: </dt>
-  <dd> <%= @jobs.salary %> </dd>
+  <dd> <%= @job.salary %> </dd>
   <dt>Nível: </dt>
-  <dd> <%= @jobs.level %> </dd>
+  <dd> <%= @job.level %> </dd>
   <dt>Requisitos: </dt>
-  <dd> <%= @jobs.requirements %> </dd>
+  <dd> <%= @job.requirements %> </dd>
   <dt>Valida até: </dt>
-  <dd> <%= I18n.localize(@jobs.expiration_date) %> </dd>
+  <dd> <%= I18n.localize(@job.expiration_date) %> </dd>
   <dt>Vagas Disponíveis: </dt>
-  <dd> <%= @jobs.qty_candidates %> </dd>
+  <dd> <%= @job.qty_candidates %> </dd>
   <dt>Status da Vaga </dt>
-  <dd> <%= @jobs.active_or_inactive(@jobs.active) %> </dd>
+  <dd> <%= @job.active_or_inactive(@job.active) %> </dd>
 </dl>
 
 <%if current_user && !current_user.candidate?%>
-  <%= link_to 'Editar', edit_job_path(@jobs)%>
-  <%= link_to 'Alterar Status da Vaga', status_job_path(@jobs), method: :patch %>
-  <%= link_to "Excluir Vaga", job_path(@jobs), method: :delete, data: { confirm: "Deseja excluir a vaga?" } %>
+  <%= link_to 'Editar', edit_job_path(@job)%>
+  <%= link_to 'Alterar Status da Vaga', status_job_path(@job), method: :patch %>
+  <%= link_to "Excluir Vaga", job_path(@job), method: :delete, data: { confirm: "Deseja excluir a vaga?" } %>
+  <%= link_to "Ver Todas as Candidaturas dessa Vaga", job_all_applications_path(@job)%>
 <%end%>
 <%unless @job_applied%>
-  <%= link_to "Candidatar-se a Vaga", job_applications_path(job: @jobs), method: :post%>
+  <%= link_to "Candidatar-se a Vaga", job_applications_path(job: @job), method: :post%>
 <%end%>
 <%= link_to "Voltar Para a página Inicial", root_path %>

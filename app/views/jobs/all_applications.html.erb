@@ -1,1 +1,10 @@
-<h1>Todas as Candidaturas</h1>
+<h1>Todas as Candidaturas da Vaga</h1>
+
+<dl>
+  <% @jobs.each do |job| %>
+    <dt>Nome: </dt>
+    <dd> <%= link_to job.user.name, job_application_path(job.id) %> </dd>
+    <dt>Status: </dt>
+    <dd> <%= job.status %> </dd>
+<% end %>
+</dl>

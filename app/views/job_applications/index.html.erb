@@ -6,6 +6,8 @@
 			<dd> <%= link_to job_application.job.name, job_path(job_application.job_id)%> </dd>
 			<dt>Situação: </dt>
 			<dd> <%= job_application.status %> </dd>
+			<dt>Mensagem: </dt>
+			<dd> <%= job_application.message %> </dd>
     <%end%>
   <% end %>
   </dl>

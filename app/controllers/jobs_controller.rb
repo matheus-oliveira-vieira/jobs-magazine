@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
   def show
     @job_applied=JobApplication.find_by(user: current_user, job: @job)
-    @jobs = Job.find(params[:id])
+    @job = Job.find(params[:id])
   end
 
   def new
@@ -56,6 +56,8 @@ class JobsController < ApplicationController
   end
 
   def all_applications
+    @jobs = JobApplication.where("job_id like ?", "%#{params[:job_id]}%")
+    #byebug
   end
 
   private

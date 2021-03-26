@@ -1,0 +1,26 @@
+<h1><%= @user.name %></h1>
+<dl>
+  <dt>E-mail: </dt>
+  <dd> <%= @user.email %> </dd>
+  <dt>CPF: </dt>
+  <dd> <%= @user.cpf %> </dd>
+  <dt>Telefone: </dt>
+  <dd> <%= @user.phone %> </dd>
+  <dt>Biografia: </dt>
+  <dd> <%= @user.biography %> </dd>
+</dl>
+
+<%= form_with model: @job_application do |form| %>
+  <%= form.label :message, "Mensagem" %>
+  <%= form.text_area :message, :required => true%>
+
+  <%= form.label :status, "Selecione o status do candidato" %>
+  
+  <%= form.radio_button :status_true, 10 %>
+  <%= form.label :status_true, "Aprovado" %>
+  
+  <%= form.radio_button :status_false, 15 %>
+  <%= form.label :status_false, "Negado" %>
+  
+  <%= form.submit "Enviar" %>
+<% end %>
