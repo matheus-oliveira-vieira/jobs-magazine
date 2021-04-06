@@ -1,0 +1,14 @@
+<%= form_with model: job_application do |f| %>
+  <%= f.label :message, "Mensagem" %>
+  <%= f.text_area :message, :required => true%>
+
+  <%= f.label :status, "Selecione o status do candidato" %>
+  <%= f.radio_button :status, 'aprovado' %>
+  <%= f.label :status_approved, "Aprovado" %>
+  <%= f.radio_button :status, 'negado' %>
+  <%= f.label :status_denied, "Negado" %>
+  
+  <%= f.submit "Enviar" %>
+<%= link_to "Fazer proposta de emprego", new_proposition_path %>
+<%end%>
+  

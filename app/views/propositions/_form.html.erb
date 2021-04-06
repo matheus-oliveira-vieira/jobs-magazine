@@ -1,0 +1,15 @@
+<%= form_with model: proposition do |f| %>
+  <!--<div>
+    <%= f.label :accepted, "Resultado da proposta" %>
+    <%= f.radio_button :accepted, true %>
+    <%= f.label :accepted_true, "Aceitar" %>
+    <%= f.radio_button :accepted, false %>
+    <%= f.label :accepted_false, "Rejeitar" %>
+  </div> -->
+  <div>
+    <%= f.label :message, 'Mensagem' %>
+    <%= f.text_field :message %>
+  </div>
+  
+  <%= f.submit "Enviar" %>
+<% end %>

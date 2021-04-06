@@ -27,10 +27,13 @@ class JobApplicationsController < ApplicationController
     	end
     end
 
-    def decide
-			byebug
-    	@job_application = JobApplication.update(job_application_params)
-	    redirect_to job_all_applications_path
+    def update
+			@job_application = JobApplication.find(params[:id])
+			if @job_application.update(job_application_params)
+				redirect_to job_all_applications_path(@job_application.job)
+			else
+				render :edit
+			end	    
     end
 
 		private

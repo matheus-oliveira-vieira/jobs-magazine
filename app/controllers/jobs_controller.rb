@@ -57,7 +57,6 @@ class JobsController < ApplicationController
 
   def all_applications
     @jobs = JobApplication.where("job_id like ?", "%#{params[:job_id]}%")
-    #byebug
   end
 
   private

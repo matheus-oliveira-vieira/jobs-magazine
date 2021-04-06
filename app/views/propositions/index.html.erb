@@ -1,0 +1,13 @@
+<h1>Todas as Propostas</h1>
+
+<dl>
+
+<%@proposition.each do |proposition|%>
+  <%if proposition.job_application.user_id == current_user.id%>
+    <dt>Vaga: </dt>
+    <dd><%= link_to proposition.job_application.job.name, proposition_path(proposition.id) %> </dd>
+    <dt>Mensagem: </dt>
+    <dd><%= proposition.message %> </dd>
+  <%end%>
+<%end%>
+</dl>
