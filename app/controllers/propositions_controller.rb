@@ -1,26 +1,49 @@
 class PropositionsController < ApplicationController
   def index
-    @proposition = Propositions.all
+    @proposition = Proposition.all
 end
   def new
-    @proposition = Propositions.new
+    @proposition = Proposition.new
   end
 
   def create
-    @proposition = Propositions.new(proposition_params)
+    @proposition = Proposition.new(proposition_params)
+    @proposition.job_application_id = params[:job_application_id]
+    #byebug
     if @proposition.save
-      redirect_to propositions_path
+      redirect_to job_application_propositions_path
     else
       render :new
     end
   end
 
   def show
-    @proposition = Propositions.find(params[:id])
+    @proposition = Proposition.find(params[:id])
   end
-  private
-    def proposition_params
-      params.require(:proposition).permit(:message)
+
+  def accept
+    @proposition = Proposition.find(params[:proposition_id])
+    @proposition.accepted = true
+    if @proposition.update(proposition_params)
+      redirect_to job_application_propositions_path
+    else
+      render :index
+    end
+    
+  end
+  def reject
+    @proposition = Proposition.find(params[:id])
+    @proposition.accepted = false
+    if @proposition.update(proposition_params)
+      redirect_to job_application_propositions_path
+    else
+      render :index
     end
   end
-end
+
+  private
+    def proposition_params
+      #byebug
+      params.require(:proposition).permit(:message, :accepted)
+    end
+  end

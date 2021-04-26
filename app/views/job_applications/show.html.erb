@@ -10,3 +10,4 @@
   <dd> <%= @user.biography %> </dd>
 </dl>
 <%= render "form", job_application: @job_application%>
+<%= link_to "Fazer proposta de emprego", new_job_application_proposition_path(@job_application) %>

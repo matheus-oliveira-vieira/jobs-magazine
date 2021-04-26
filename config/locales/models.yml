@@ -15,3 +15,15 @@ pt-BR:
         name: "Nome"
         email: 'E-mail'
         password: 'Senha'
+        address: 'Endereço'
+        cnpj: "CNPJ"
+        website: 'Site'
+        founded: "Ano de Fundação"
+      job:
+        name: "Nome"
+        description: "Descrição"
+        salary: "Salário" 
+        level: 'Nível'
+        requirements: "Requisitos"
+        expiration_date: "Data de Término das candidaturas"
+        qty_candidates: "Quantidade máxima de vagas"

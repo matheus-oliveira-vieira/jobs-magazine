@@ -1,11 +1,4 @@
-<%= form_with model: proposition do |f| %>
-  <!--<div>
-    <%= f.label :accepted, "Resultado da proposta" %>
-    <%= f.radio_button :accepted, true %>
-    <%= f.label :accepted_true, "Aceitar" %>
-    <%= f.radio_button :accepted, false %>
-    <%= f.label :accepted_false, "Rejeitar" %>
-  </div> -->
+<%= form_with model: proposition, url: job_application_propositions_path do |f| %>
   <div>
     <%= f.label :message, 'Mensagem' %>
     <%= f.text_field :message %>

@@ -10,7 +10,8 @@ feature 'Admin creates a company' do
     select 'employee', from: 'Você é'
     fill_in I18n.t('email'), with: 'matheus@code4u.com'
     fill_in I18n.t('password'), with: '123456'
-    fill_in I18n.t('password_confirmation'), with: '123456'
+    #fill_in I18n.t('password_confirmation'), with: '123456'
+    fill_in "Confirmar senha", with: '123456'
     click_on "Sign up"
 
     fill_in 'Nome', with: 'Code4U'

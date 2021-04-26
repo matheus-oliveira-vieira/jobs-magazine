@@ -1,14 +1,18 @@
 pt-BR:
   activerecord:
+    attributes:
+      user/role:
+        employee: 'Colaborador'
+        candidate: 'Candidato'
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
-  email: E-mail
-  password: Senha
-  password_confirmation: Confirme sua senha
+  email: 'E-mail'
+  password: 'Senha'
+  password_confirmation: 'Confirme sua senha'
   date:
     abbr_day_names:
     - dom

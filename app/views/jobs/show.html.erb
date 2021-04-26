@@ -26,4 +26,5 @@
 <%unless @job_applied%>
   <%= link_to "Candidatar-se a Vaga", job_applications_path(job: @job), method: :post%>
 <%end%>
+  <%= link_to 'Ver propostas de emprego', job_application_propositions_path(@job)%>
 <%= link_to "Voltar Para a página Inicial", root_path %>

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'View job applies' do
+feature 'Reject job application' do
   
   scenario "successfully" do
 
@@ -30,7 +30,11 @@ feature 'View job applies' do
     click_on (job.name).to_s
     click_on "Ver Todas as Candidaturas dessa Vaga"
     click_on user_candidate.name
-    click_on "Fazer proposta de emprego"
-    choose :proposition_accepted_false
-    fill_in('message'), with: 'Infelizmente não foi dessa vez, mas não desista!'
+    choose :job_application_status_negado
+    fill_in 'Mensagem', with: 'Infelizmente não foi dessa vez, mas não desista!'
     click_on 'Enviar'
+
+    
+    expect(page).to have_content('negado')
+  end
+end

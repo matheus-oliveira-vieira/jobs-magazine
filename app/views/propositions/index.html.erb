@@ -3,11 +3,15 @@
 <dl>
 
 <%@proposition.each do |proposition|%>
-  <%if proposition.job_application.user_id == current_user.id%>
+ 
+  
     <dt>Vaga: </dt>
-    <dd><%= link_to proposition.job_application.job.name, proposition_path(proposition.id) %> </dd>
+    <dd><%= proposition.job_application.job.name %> </dd>
     <dt>Mensagem: </dt>
     <dd><%= proposition.message %> </dd>
-  <%end%>
+    
+    <dt> <%= link_to 'Aceitar', job_application_proposition_accept_path(proposition.id, proposition.job_application.id), method: :patch%> </dt>
+    <dt> <%= link_to 'Recusar', job_application_proposition_reject_path(proposition.id, proposition.job_application.id), method: :patch%> </dt>
+    
 <%end%>
 </dl>
