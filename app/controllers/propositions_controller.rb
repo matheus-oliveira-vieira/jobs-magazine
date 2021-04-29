@@ -23,19 +23,17 @@ end
 
   def accept
     @proposition = Proposition.find(params[:proposition_id])
-    @proposition.accepted = true
-    if @proposition.update(proposition_params)
-      redirect_to job_application_propositions_path
+    if @proposition.update(accepted: true)
+      redirect_to root_path
     else
       render :index
     end
     
   end
   def reject
-    @proposition = Proposition.find(params[:id])
-    @proposition.accepted = false
-    if @proposition.update(proposition_params)
-      redirect_to job_application_propositions_path
+    @proposition = Proposition.find(params[:proposition_id])
+    if @proposition.update(accepted: false)
+      redirect_to root_path
     else
       render :index
     end

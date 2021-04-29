@@ -9,7 +9,6 @@ feature 'Admin creates a job' do
       founded: '2020')
     user = User.create!(email: 'matheus@code4u.com', password: '123456', company_id: company.id)
 
-    # COLOCAR A LOGICA DO LOGIN DO COLABORADOR
     visit root_path
     login_as user
     click_on "Nova Vaga de Emprego"
